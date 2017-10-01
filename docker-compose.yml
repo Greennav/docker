@@ -1,0 +1,22 @@
+version: '2'
+services:
+  server:
+    image: gradle:latest
+    command: gradle bootRun
+
+    volumes:
+      - ./routing:/home/gradle
+    ports:
+      - 8080:8080
+    user: root
+
+
+  website:
+    image: node
+    command: /bin/bash -c "cd /home/node && npm install && npm start"
+
+    volumes:
+      - ./GreenNav:/home/node
+    ports:
+      - 3000:3000
+
