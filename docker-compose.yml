@@ -13,7 +13,7 @@ services:
 
   website:
     image: node
-    command: /bin/bash -c "cd /home/node && npm install && npm start"
+    command: /bin/bash -c "cd /home/node && npm install && npm run build"
 
     volumes:
       - ./GreenNav:/home/node
