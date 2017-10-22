@@ -1,11 +1,8 @@
 version: '2'
 services:
   server:
-    image: gradle:latest
-    command: gradle bootRun
-
-    volumes:
-      - ./routing:/home/gradle
+    image: golang
+    command: /bin/bash -c "go get github.com/nav-e/routing && mkdir resources && wget https://github.com/nav-e/routing/blob/master/resources/monaco-latest.osm.pbf?raw=true resources/monaco-latest.osm.pbf && ./bin/routing"
     ports:
       - 8080:8080
     user: root
